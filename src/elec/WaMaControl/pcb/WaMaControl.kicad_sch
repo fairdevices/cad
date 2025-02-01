@@ -504,7 +504,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_Samtec_HPM_THT:Samtec_HPM-03-01-x-S_Straight_1x03_Pitch5.08mm"
+		(property "Footprint" ""
 			(at 87.63 179.07 0)
 			(effects
 				(font
@@ -680,7 +680,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "a12ccdb6-3679-4846-a6aa-1c003e3aea6b")
-		(property "Sheetname" "heating-motor-valves"
+		(property "Sheetname" "heating-valves"
 			(at 85.09 25.9584 0)
 			(effects
 				(font
@@ -816,6 +816,44 @@
 			(project "WaMaControl"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 85.09 67.31)
+		(size 41.91 25.4)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "f95346a4-3b9a-484a-bfa7-d29573084bb6")
+		(property "Sheetname" "motor"
+			(at 85.09 66.5984 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "motor.kicad_sch"
+			(at 85.09 93.2946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "WaMaControl"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(page "6")
 				)
 			)
 		)

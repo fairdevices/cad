@@ -19,8 +19,30 @@ Es soll eine universale Waschmaschinen-Steuerung entstehen!
 
 ### Netzteil
 
+Das Netzteil soll im Sinne eines robusten Design aus einem Trafo mit Gleichrichter für die 12-V-Ebene sein. Die 12-V-Ebene versorgt alle Relais mit Spannung.
+
+Verbraucher zur Lastschätzung
+
+| | |
+|---------------------------|-----------|-----------|
+| Kaltwasserventil-Relais   | 0.1A      | 1 W       |
+| Warmwasserventil-Relais   | 0.1A      | 1 W       |
+| Relais ?                  |           |           |
+| ESP 32                    | 0,2 A     | 0,7 W     |
+| P                         |           | 2 Watt?   |
+
+Der 12 Vdc-Ebene wird ein Linearregler (500mA) auf 3,3 V nachgeschaltet, um die spannungsstabile Energieversorgung des ESP32 zu gewährleisten.
+
+Die Kalt- und Warmwasser-Relais sind schalten nicht gleichzeitig. So lässt sich der Gleichzeitigkeitsfaktor und damit die Bemessungsleistung des Netzteils reduzieren.
+
+Funktionen der Komponenten
+
+SVR100 ... Variator zum Schutz gegen Überspannungen aus dem Netz und die Selbstinduktion beim Ausschalten des Trafos T100
+
 
 ### Temperaturreglung
+
+#### Allgemeines
 
 Die Wassertemperatur wird konventionell durch eine Widerstandsheizung (230V, 2kW, → 10A) realisiert. Die Temperaturmessung erfolgt über ein NTC-Element. Die meisten Waschmaschinen verwenden NTC-Fühler mit einem Widerstand von etwa 4,8 kΩ bei 20°C. Wenn in einer bestimmten Waschmaschine ein anderes Modell verwendet wird, dann muss dies entsprechend in der Software für den µC hinterlegt werden.
 
@@ -45,6 +67,19 @@ Verschiedene Schaltelemente haben jeweils ihre Vor- und Nachteile:
                                             → Optokoppler notwendig         |
 
 Aufgrund des Entwicklungsziels einer möglichst hohen Langlebigkeit wird sich für den Einsatz eines Triacs entschieden. Die 10W Verluste bei einem Strom von 10 A entsprechen vertretbaren 10W/2000W = 0,5 % Verlustleistung. Ein ausreichend großer Kühlkörper wird durch Versuche ermittelt.
+
+
+#### Randbedingungen für Regelung
+
+Wasservolumen, geschätzt, 10-25 L
+
+Wärmekapazität Wasser: 4,19 kJ/(kg K)
+
+Worst case: 90-°C-Wäsche, dT=80 K, 10..25 kg → 30\...60 min Heizphase ohne Thermische Verluste
+
+Regelung mit Relais: EIN-Schaltdauer im Bereich von Minuten, 2-Punkt-Regelung mit +/- 2 °C ausreichend
+
+Regelung mit Thyristor: Ein-Schaltdauer funktionsbedingt 2 Sinus-Halbwellen = 20 ms, jede Periode müssten die Thyristoren neu getriggert werden.
 
 
 ### Motorsteuerung

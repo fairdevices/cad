@@ -535,13 +535,25 @@
           "label": "DNP",
           "name": "${DNP}",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Beschreibung",
+          "name": "Description",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
-      "name": "Grouped By Value",
+      "name": "",
       "sort_asc": true,
-      "sort_field": "Referenz"
+      "sort_field": "Reference"
     },
     "connection_grid_size": 50.0,
     "drawing": {
@@ -577,7 +589,7 @@
       "meta": {
         "version": 0
       },
-      "model_mode": 0,
+      "model_mode": 4,
       "workbook_filename": ""
     },
     "page_layout_descr_file": "",
@@ -595,7 +607,7 @@
   "sheets": [
     [
       "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55",
-      "Stammblatt"
+      "Root"
     ],
     [
       "ca0eab8e-e3fd-464d-bb03-d1603b8a651b",
@@ -603,7 +615,7 @@
     ],
     [
       "a12ccdb6-3679-4846-a6aa-1c003e3aea6b",
-      "heating-motor-valves"
+      "heating-valves"
     ],
     [
       "b6503b25-13f0-40f0-acaa-4fa648dbee79",
@@ -612,6 +624,10 @@
     [
       "b4ce2594-5218-4ca1-8eec-3ef8aff52f38",
       "microcontroller"
+    ],
+    [
+      "f95346a4-3b9a-484a-bfa7-d29573084bb6",
+      "motor"
     ]
   ],
   "text_variables": {}
